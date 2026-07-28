@@ -1,0 +1,36 @@
+{
+  "project": {
+    "name": "PilotForge",
+    "description": "新規事業の仮説を短期間で検証可能なプロトタイプに変える架空の伴走サービスです。",
+    "contactEmail": "hello@example.com"
+  },
+  "site": {
+    "headline": "アイデアを、検証できる形へ。",
+    "subheadline": "企画整理からプロトタイプ、初期ユーザー検証までを一気通貫で支援します。",
+    "features": [
+      ["仮説整理", "誰のどの課題を、なぜ今解くのかを短時間で言語化します。"],
+      ["プロトタイプ", "説明資料ではなく、触って評価できる形まで素早く作ります。"],
+      ["検証設計", "問い合わせや利用データを次の意思決定につなげます。"]
+    ]
+  },
+  "form": {
+    "fields": [
+      { "id": "name", "label": "お名前", "type": "text", "required": true, "maxLength": 80 },
+      { "id": "email", "label": "メールアドレス", "type": "email", "required": true, "maxLength": 200 },
+      { "id": "company", "label": "会社・組織名", "type": "text", "required": false, "maxLength": 120 },
+      { "id": "topic", "label": "ご相談の種類", "type": "select", "required": true, "options": ["新規事業", "プロトタイプ", "協業", "その他"] },
+      { "id": "message", "label": "ご相談内容", "type": "textarea", "required": true, "maxLength": 3000 }
+    ]
+  },
+  "automation": {
+    "githubIssueMinimumScore": 7,
+    "replyMode": "draft-only",
+    "autoReplyCategories": ["document-request", "event"],
+    "minimumAutoReplyConfidence": 0.92
+  },
+  "ai": {
+    "businessContext": "新規事業、生成AI活用、プロトタイプ検証を支援します。",
+    "positiveSignals": ["検証", "プロトタイプ", "ユーザー", "導入", "協業"],
+    "negativeSignals": ["営業代行", "広告掲載", "被リンク"]
+  }
+}

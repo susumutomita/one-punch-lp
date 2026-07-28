@@ -1,0 +1,41 @@
+{
+  "id": "one-punch-lp",
+  "name": "問い合わせを仕事に変える",
+  "category": "Challenge",
+  "status": "ready",
+  "visibility": "public",
+  "difficulty": 2,
+  "estimatedDuration": "20-30 分",
+  "shortDescription": "架空サービスのLPから問い合わせを送り、一次分析、Issue化、返信承認までを体験する。",
+  "description": "ワンパンLPのローカル業務フローを学ぶmulti-verify問題。各checkpointはコンテナ内の状態で判定する。",
+  "instructions": "## 最初の一手\n\nチュートリアル画面を開き、架空の問い合わせを送信してください。分析結果を確認し、Issue化と返信承認まで進めます。",
+  "writeup": "LPは入口にすぎない。保存、分類、通知、タスク化、返信案を一つの監査可能な流れとして設計し、重要な判断は人へ戻す。",
+  "tags": ["ai-agent", "landing-page", "workflow", "local-play", "container"],
+  "exposedPorts": [
+    { "port": 18080, "name": "Tutorial" },
+    { "port": 18081, "name": "/verify" }
+  ],
+  "learningGoals": [
+    "問い合わせを構造化して保存できる",
+    "AI一次分析を判断材料として扱える",
+    "条件付きタスク化と人間承認の境界を説明できる"
+  ],
+  "runtime": {
+    "provider": "docker",
+    "engine": "compose",
+    "entry": "local/docker-compose.yml",
+    "challengeEndpoints": { "Tutorial": "http://127.0.0.1:18080/tutorial" },
+    "verifyUrl": "http://127.0.0.1:18081/verify",
+    "secretEnv": ["FLAG_SEED"]
+  },
+  "scoring": {
+    "kind": "multi-verify",
+    "checks": [
+      { "id": "environment", "label": "チュートリアルを起動する", "points": 15, "wrongAnswerPenalty": 0 },
+      { "id": "inquiry", "label": "問い合わせを送信する", "points": 20, "wrongAnswerPenalty": 0 },
+      { "id": "analysis", "label": "一次分析を確認する", "points": 20, "wrongAnswerPenalty": 0 },
+      { "id": "issue", "label": "条件を満たす問い合わせをIssue化する", "points": 20, "wrongAnswerPenalty": 0 },
+      { "id": "approval", "label": "返信案を人間が承認する", "points": 25, "wrongAnswerPenalty": 0 }
+    ]
+  }
+}
