@@ -31,3 +31,5 @@ jobs:
           git add -A
           git diff --cached --quiet || git commit -m 'Implement One Punch LP MVP'
           git push
+
+# Bootstrap trigger: repository payload is ready.
