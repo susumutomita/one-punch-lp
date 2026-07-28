@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "generate": "node scripts/generate.mjs",
     "dev": "node scripts/generate.mjs && node scripts/serve.mjs",
@@ -11,7 +13,8 @@
     "check": "node scripts/check.mjs",
     "inquiry:test": "node scripts/send-test-inquiry.mjs",
     "tenkacloud:dev": "docker compose -f tenkacloud/problem/local/docker-compose.yml up --build",
-    "tenkacloud:down": "docker compose -f tenkacloud/problem/local/docker-compose.yml down --remove-orphans"
+    "tenkacloud:down": "docker compose -f tenkacloud/problem/local/docker-compose.yml down --remove-orphans",
+    "google:deploy": "node scripts/deploy-google.mjs"
   },
   "license": "Apache-2.0"
 }
